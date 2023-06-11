@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Expenses</title>
+  <style>
+    body {
+      background-color: aliceblue;
+      display: grid;
+      grid: auto/ auto;
+      gap: .5em;
+
+    }
+
+    header {
+      background-color: #dfd4c5;
+      padding: 1em;
+      border-radius: 1em 1em 4rem 4rem;
+      display: grid;
+
+
+
+    }
+
+    #welcome {
+      font-size: 5.5vw;
+      color: #094fa5;
+      margin: opx;
+      padding: 0px;
+      border: none;
+      text-align: center;
+      animation: blinker 3s linear infinite;
+    }
+
+    @keyframes blinker {
+
+      0% {
+        opacity: 1;
+        color: #c4d8f1;
+      }
+
+      20% {
+        opacity: 1;
+        color: #62a2f1;
+      }
+
+      40% {
+        opacity: 1;
+        color: #0972f1;
+      }
+
+      60% {
+        opacity: 1;
+        color: #0972f1;
+      }
+
+      80% {
+        opacity: 1;
+        color: #62a2f1;
+      }
+
+      100% {
+        opacity: 1;
+        color: #c4d8f1;
+      }
+    }
+
+    h2 {
+      font-size: 5vw;
+      text-align: center;
+      color: #563304;
+    }
+
+    h1 {
+      font-size:1.5em;
+      text-align: center;
+      color: #563304;
+    }
+
+    section,footer {
+      border: 1px solid red;
+      border-radius: 4%;
+    }
+
+    .btn {
+      text-align: center;
+      margin: 5px 5px
+    }
+
+    .sec1 {
+      text-align: center;
+      margin: 5px 5px
+    }
+
+    #btn1 {
+      text-align: center;
+      margin: 15px 5px
+    }
+
+    #btnsignup {
+      text-align: center;
+      border-radius: 10%;
+      
+      border: 1px solid red;
+      background-color: #e0890e;
+
+    }
+
+    #btnsignup:hover {
+      cursor: pointer;
+      background-color: #62a2f1;
+    }
+
+    #btnsignup:active {
+      cursor: progress;
+      background-color: #afb0b1;
+    }
+
+    .foot1 {
+      margin-top: 7px;
+      text-align: center;
+    }
+
+    select {
+      margin: 4px;
+    }
+
+    .details {
+      width: 80%;
+    }
+
+    #btnUserPhoto {
+      text-align: center;
+      border-radius: 10%;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      border: 1px solid rgb(154, 14, 235);
+      background-color: #82ee82;
+
+    }
+
+    #btnUserPhoto:hover {
+      cursor: pointer;
+      background-color: #62a2f1;
+    }
+
+    #btnUserPhoto:active {
+      cursor: progress;
+      background-color: #afb0b1;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  span{
+    font-size: 1em;
+  }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <div>
+      <h1 id="welcome">Welcome </h1>
+    </div>
+    <div>
+      <h2>EXPENSE DIARY</h2>
+    </div>
+
+  </header>
+  <section>
+    <div>
+      <h1 class="reg">Add Expenses</h1>
+    </div>
+
+
+    <div class="sec1">
+      <input type="number" id="amt" class="details" name="name" placeholder="Amount in Rs.">
+    </div>
+    <div class="sec1">
+      <input type="text" id="sendTo" class="details" name="sendTo" placeholder="Transfered/Paid To">
+    </div>
+    <div class="sec1">
+      <input type="date" id="dt" class="details">
+    </div>
+    <div class="sec1">
+      <input type="time" id="tm" class="details">
+    </div>
+
+    <div class="sec1">
+      <select name="catagory" id="catagory" aria-placeholder="category" class="details">
+        <option value="Choose">Choose category</option>
+        <option value="hr">House rent</option>
+        <option value="Loan">Loan EMI</option>
+        <option value="savings">LIC and Other savings</option>
+        <option value="Loan">Loan EMI</option>
+        <option value="grossery">Grossory</option>
+        <option value="vegetable">Vegetable</option>
+        <option value="fishOther">fish/Meat/Other</option>
+        <option value="fuel">Petrol/Diesel</option>
+        <option value="education">Education</option>
+        <option value="relative">For Relatives </option>
+        <option value="Clothes">Clothes</option>
+        <option value="others">Others</option>
+
+      </select>
+    </div>
+    <div class="sec1">
+      <textarea id="description" class="details" placeholder="Description">
+
+                </textarea>
+    </div>
+    <div id="btn1">
+      <button id="btnsignup">Submit</button>
+    </div>
+
+  </section>
+  <footer>
+    <div id="recently">
+      <div>
+      <h1 class="reg">Recently Added</h1>
+      <table  style="border: 1px solid black;
+      border-collapse: collapse; width: 100%;">
+        <thead>
+          <tr>
+            <th style="width: 33.3%;">Date</th>
+            <th style="width: 33.3%;">Amount</th>
+            <th style="width: 33.3%;">category</th>
+          </tr>
+        </thead>
+        <tbody id="recentlyAdded">
+          <tr>
+            <td style="width: 33.3%;">02/05/2023</td>
+            <td style="width: 33.3%;">453.00</td>
+            <td style="width: 33.3%;">Grossory</td>
+
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div id="btn1">
+      <button id="btnclose">close</button>
+    </div>
+
+  </footer>
+  <span>Copy Right @ POWERGRID</span>
+  </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyATt00dQ2pCsruBHKl-nIzgW_zdG3slKGg",
+      authDomain: "personal-b8b12.firebaseapp.com",
+      projectId: "personal-b8b12",
+      storageBucket: "personal-b8b12.appspot.com",
+      messagingSenderId: "534089607287",
+      appId: "1:534089607287:web:77eaac8e2895c5d746be72",
+      measurementId: "G-1MYSJCKYM2"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    import { getDatabase, ref, set, child, update, remove }
+      from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+    const db = getDatabase();
+
+    let dataUpload = {
+      detail: function () {
+
+        var x = document.getElementById("catagory");
+        var i = x.selectedIndex;
+        var amt = document.getElementById('amt').value;
+        var sendTo = document.getElementById("sendTo").value;
+        var trdate = document.getElementById("dt").value;
+        var trTime = document.getElementById("tm").value;
+        var description = document.getElementById("description").value;
+        let expenseDetails = {
+          trID: Date.now(),
+          amount: amt,
+          sendTo: sendTo,
+          trDate: trdate,
+          trTime: trTime,
+          catagory: x.options[i].text,
+          description: description,
+          expenser:"prabin"
+        };
+        console.log(expenseDetails);
+
+        if (amt) {
+          if (sendTo) {
+            if (trdate) {
+              if (trTime) {
+                if (i !== 0) {
+
+                  set(ref(db, "/expenseDetails/" + expenseDetails.trID), {
+                    trID: Date.now(),
+                    amount: amt,
+                    sendTo: sendTo,
+                    trDate: trdate,
+                    trTime: trTime,
+                    catagory: x.options[i].text,
+                    description: description,
+                    expenser:"prabin"
+                  })
+                    .then(() => {
+                      alert("Data saved successfully");
+                      var table = document.getElementById("recentlyAdded");
+                      var row = table.insertRow(0);
+                      var cell1 = row.insertCell(0);
+                      var cell2 = row.insertCell(1);
+                      var cell3 = row.insertCell(2);
+
+                      // Add some text to the new cells:
+                      cell1.innerHTML = trdate;
+                      cell2.innerHTML = amt;
+                      cell3.innerHTML = x.options[i].text;
+                    })
+                    .catch((error) => {
+                      // The write failed...
+                    })
+
+                } else {
+                  alert("Please Select Catagory !");
+                }
+
+              } else {
+                alert("Please Enter Time !");
+              }
+
+            } else {
+              alert("Please Enter Date !");
+            }
+
+          } else {
+            alert("Please Enter Paid To !");
+          }
+
+        } else {
+          alert("Please Enter amount !");
+        }
+      }
+    };
+
+    document.getElementById('btnsignup').addEventListener('click', dataUpload.detail);
+    
+  </script>
+
+
+
+  <script type="text/javascript">
+
+
+  </script>
+</body>
+
+</html>

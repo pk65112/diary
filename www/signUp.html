@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/signup.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <header>
+            <div id="logodiv">
+                <img src="img/logoWithoutBg.png" id="logoimg" alt="POWERGRID">
+            </div>
+            <div>
+                <h1 id="welcome">Welcome to Digital Substation</h1>
+            </div>
+            <div>
+                <h2>400/220 KV Pandiabili GIS</h2>
+            </div>
+
+        </header>
+        <section>
+            <div>
+                <h1 id="reg">Registration</h1>
+            </div>
+            <div class="sec2">
+                <img id="userimg" src="" alt="">
+             </div>
+             <div id="btn2" class="btn">
+                 <button id="btnUserPhoto">Take Photo</button>
+             </div>
+             <div class="sec2">
+                 <img id="usersign" src="" alt="">
+              </div>
+              <div class="hints">Image size Should not be greater than 120 px X 30 Px</div>
+              <div id="btn4" class="btn">
+                 <button id="btnusersignSelect">Select</button>
+             </div>
+              <div id="btn3" class="btn">
+                  <button id="btnUsersign">Upload</button>
+              </div>
+            <div class="sec1">
+                <label for="name">Name :</label>
+            </div>
+            <div class="sec1">
+                <input type="text" id="name" class="loginItem" name="name" >
+            </div>
+            <div class="sec1">
+                <label for="empno">Employee No. :</label>
+            </div>
+            <div class="sec1">
+                <input type="text" id="empNo" class="loginItem" name="empno" placeholder="Employee No.">
+            </div>
+            <div class="sec1">
+                <label for="posting">Place of posting:</label>
+            </div>
+            <div class="sec1">
+                <select name="posting" id="region">
+                    <option value="Choose">Choose  Region</option>
+                    <option value="odisha">Odisha Project</option>
+                    <option value="er2">ER-II</option>
+                    <option value="er1">ER-I</option>
+                </select>
+                <select name="posting1" id="unit">
+                    <option value="Choose">Choose Unit</option>
+                    <option value="Pandiabili">pandiabili ss</option>
+                    <option value="ctc">Cuttack TLM</option>
+                    <option value="kaniha">Kaniha</option>
+                </select>
+               
+            </div>
+            <div class="sec1">
+                <label for="email">Email :</label>
+            </div>
+            <div class="sec1">
+                <input type="text" id="email" class="loginItem" name="email">
+            </div>
+            <div class="sec1">
+                <label for="pw">Password :</label>
+            </div>
+            <div class="sec1">
+                <input type="text" id="pw" class="loginItem" name="pw">
+            </div>
+            <div class="sec1">
+                <label for="cpw">Confirm Password :</label>
+            </div>
+            <div class="sec1">
+                <input type="text" id="cpw" class="loginItem" name="cpw">
+            </div>
+            <div id="btn1">
+                <button id="btnsignup">Submit</button>
+            </div>
+
+        </section>
+        <footer>
+          
+            <span>Copy Right @ POWERGRID</span>
+
+        </footer>
+        
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js"></script>
+        <script type="text/javascript" src="js/firebase.js"></script>
+
+        <script>
+            
+        </script>
+        
+        <script type="text/javascript">
+            let photography = {
+                initiation: function(){
+                    console.log(navigator.camera);
+                    document.getElementById('btnUserPhoto').addEventListener('click', photography.takephoto)
+
+                },
+                takephoto: function () {
+                    let opt = {
+                        quality: 50,
+                         destinationType: Camera.DestinationType.DATA_URL,
+                         sourceType: Camera.PictureSourceType.CAMERA,
+                         mediaType: Camera.MediaType.PICTURE,
+                         cameraDirection: Camera.Direction.FRONT,
+                         targetWidth:250,
+                         targwtHeight:200
+
+                    };
+                    navigator.camera.getPicture( photography.onSucsess, photography.onFailure, opt);
+                    
+                },
+                onSucsess: function(imageData){
+                     document.getElementById('userimg').src = "data:image/jpeg;base64," + imageData;
+                },
+                onFailure: function(message){
+                    alert('Failed because: ' + message);
+                }
+                
+            };
+            document.addEventListener('deviceready',photography.initiation,false);
+            let signPhotography = {
+                initiation: function(){
+                    console.log(navigator.camera);
+                    document.getElementById('btnusersignSelect').addEventListener('click', signPhotography.takesign)
+
+                },
+                takesign: function () {
+                    let opt = {
+                        quality: 90,
+                         destinationType: Camera.DestinationType.DATA_URL,
+                         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                         mediaType: Camera.MediaType.PICTURE,
+                         cameraDirection: Camera.Direction.FRONT,
+                         targetWidth:100,
+                         targwtHeight:70
+                    };
+                    navigator.camera.getPicture( signPhotography.onSucsess, signPhotography.onFailure, opt);
+                    
+                },
+                onSucsess: function(imageData){
+                     document.getElementById('usersign').src = "data:image/jpeg;base64," + imageData;
+                },
+                onFailure: function(message){
+                    alert('Failed because: ' + message);
+                }
+                
+            };
+            document.addEventListener('deviceready',signPhotography.initiation,false);
+            let userRegDetails = {
+                name: document.getElementById('name').value,
+                empNo: document.getElementById('empNo').value,
+                region: document.getElementById('region').value,
+                unit: document.getElementById('unit').value,
+                email: document.getElementById('email').value,
+                pw: document.getElementById('pw').value,
+                cpw: document.getElementById('cpw').value
+            };
+            let dataUpload = {
+                detail: function(){
+                    console.log(userRegDetails)
+                }
+            };
+            document.getElementById('btnsignup').addEventListener('click', dataUpload)
+
+        </script>
+    </body>
+</html>
