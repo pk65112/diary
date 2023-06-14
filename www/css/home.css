@@ -3,12 +3,15 @@ body {
     display: grid;
     grid: auto/ auto;
     gap: 2em;
- 
+    color: black;
  }
  
  #logoimg{
-     width: 100%;
+     width: 50%;
      height: auto;
+ }
+ #logodiv{
+text-align: center;
  }
  header{
      background-color: #dfd4c5;

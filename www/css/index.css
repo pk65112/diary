@@ -5,12 +5,14 @@ body {
    background-color: aliceblue;
    display: grid;
    grid: 1fr 1fr 1fr / auto;
-   gap: 2em;
+   gap: 0em;
 
 }
-
+#logodiv{
+  text-align: center;
+   }
 #logoimg{
-    width: 100%;
+    width: 50%;
     height: auto;
 }
 header{
