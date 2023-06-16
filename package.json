@@ -48,7 +48,8 @@
         "ANDROID_GSON_VERSION": "2.9.0",
         "ANDROID_FIREBASE_PERF_GRADLE_PLUGIN_VERSION": "1.4.2",
         "ANDROID_GRPC_OKHTTP": "1.46.0"
-      }
+      },
+      "cordova-plugin-ionic-webview": {}
     }
   },
   "devDependencies": {
@@ -59,6 +60,7 @@
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-file": "^7.0.0",
     "cordova-plugin-firebase": "^2.0.5",
-    "cordova-plugin-firebasex": "^16.1.0"
+    "cordova-plugin-firebasex": "^16.1.0",
+    "cordova-plugin-ionic-webview": "^5.0.0"
   }
 }
