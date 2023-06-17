@@ -96,7 +96,7 @@
     }
 
     .sec1 {
-      color:black;
+      color: black;
       text-align: center;
       margin: 5px 5px
     }
@@ -168,8 +168,11 @@
     span {
       font-size: 1em;
     }
-    input,textarea,select{
-      color:black;
+
+    input,
+    textarea,
+    select {
+      color: black;
     }
   </style>
 </head>
@@ -257,7 +260,7 @@
       </div>
     </div>
     <div id="btn1">
-      <button id="btnclose">close</button>
+      <button id="btnclose" onClick="javascript:window.open('','_self').close();">close</button>
     </div>
 
   </footer>
@@ -291,11 +294,14 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
-   const db = getDatabase(app);
+    const db = getDatabase(app);
 
     let dataUpload = {
       detail: function () {
-
+        const d = new Date();
+        let year = d.getFullYear();
+        const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let month = monthName[d.getMonth()];
         var x = document.getElementById("catagory");
         var i = x.selectedIndex;
         var amt = document.getElementById('amt').value;
@@ -321,7 +327,7 @@
               if (trTime) {
                 if (i !== 0) {
 
-                  set(ref(db, "/expenseDetails/" + expenseDetails.trID), {
+                  set(ref(db, "/expenseDetails/"+year+"/"+month +"/" + expenseDetails.trID), {
                     trID: Date.now(),
                     amount: amt,
                     sendTo: sendTo,
@@ -371,6 +377,7 @@
     };
 
     document.getElementById('btnsignup').addEventListener('click', dataUpload.detail);
+
 
   </script>
 
